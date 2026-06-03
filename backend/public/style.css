@@ -1,0 +1,1608 @@
+/* Reset and Base Styles */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap');
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body, html {
+    width: 100%;
+    height: 100%;
+    font-family: 'Times New Roman', Tahoma, Geneva, Verdana, sans-serif;
+    overflow-x: hidden; 
+}
+
+/* Hero Section & Background */
+.hero-container {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+    /* ADD YOUR BACKGROUND IMAGE HERE */
+    background-image: url('./images/background\ 1.png');
+    background-size: cover;
+    background-position: center;
+    
+    background-color: #2b3a4a;
+    background-blend-mode: overlay;
+}
+
+.navbar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 25px 5%; /* Matches the 5% padding of your center text */
+    z-index: 100; /* Ensures the navbar stays above the moving icons */
+    background: transparent; /* No background */
+}
+
+.navbar .logo {
+    font-size: 2rem;
+    font-weight: 800;
+    color: white;
+    letter-spacing: 2px;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8);
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 30px; /* Space between the 5 links */
+}
+
+.nav-links li a {
+    color: white;
+    text-decoration: none;
+    font-size: 1.1rem;
+    font-weight: 500;
+    text-shadow: 1px 1px 5px rgba(0,0,0,0.8);
+    transition: all 0.3s ease;
+}
+
+/* Hover effect matches the React blue from your name */
+.nav-links li a:hover {
+    color: #61dafb; 
+}
+
+/* Mobile Responsiveness for Navbar */
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        gap: 15px;
+        padding: 15px 5%;
+    }
+    
+    .nav-links {
+        gap: 15px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+}
+/* Typography Center */
+/* .profile-text {
+    text-align: center;
+    color: white;
+    z-index: 10;
+    padding: 0 20px;
+}
+
+.profile-text h1 {
+    font-size: clamp(2.5rem, 5vw, 4rem); 
+    margin-bottom: 10px;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
+}
+
+.profile-text h2 {
+    font-size: clamp(1.2rem, 3vw, 2rem);
+    font-weight: 400;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
+} */
+
+/* Typography & Center Layout */
+.profile-text {
+    text-align: center;
+    color: white;
+    z-index: 10;
+    
+    /* Perfect padding and spacing */
+    padding: 0 3%;
+    max-width: 800px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px; /* Creates perfectly even space between text elements */
+}
+
+.profile-text h1 {
+    font-size: clamp(3rem, 6vw, 5rem); 
+    line-height: 1.1;
+    margin: 0;
+    text-shadow: 2px 2px 12px rgba(0, 0, 0, 0.8);
+}
+
+.profile-text h1 .highlight {
+    color: #61dafb; /* Blue accent matching the React icon */
+}
+
+.role {
+    font-size: clamp(1.2rem, 3vw, 2rem);
+    font-weight: 300;
+    letter-spacing: 1px;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
+}
+
+.bio {
+    font-size: clamp(0.95rem, 1.5vw, 1.1rem);
+    color: #e5e7eb;
+    line-height: 1.6;
+    margin-top: 5px;
+    margin-bottom: 15px;
+    text-shadow: 1px 1px 5px rgba(0,0,0,0.8);
+    max-width: 600px;
+}
+/* Marquee Layout (Centered) */
+.marquee-wrapper {
+    position: absolute;
+    width: 100%;
+    display: flex;
+    justify-content: center; /* Anchors tracks exactly in the center */
+    align-items: center;
+    overflow: hidden;
+}
+
+.top-marquee {
+    top: 15%; 
+}
+
+.bottom-marquee {
+    bottom: 15%; 
+}
+
+.marquee-track {
+    display: flex;
+    width: max-content;
+}
+
+.icon-group {
+    display: flex;
+    align-items: center;
+    gap: 50px;
+}
+
+/* Icon Styling */
+.icon-group i {
+    font-size: 3.5rem;
+    filter: drop-shadow(0px 4px 5px rgba(0,0,0,0.5));
+}
+
+.code-icon {
+    font-family: monospace;
+    font-weight: 900;
+    font-size: 2.5rem;
+    color: #333;
+    background: #f0db4f; 
+    padding: 5px 10px;
+    border-radius: 8px;
+    filter: drop-shadow(0px 4px 5px rgba(0,0,0,0.5));
+}
+
+/* New Bouncing Animations */
+/* New Subtle Bouncing Animations */
+@keyframes moveLeft {
+    00%{
+        transform: translatex(-50px);
+    }
+    50%{
+        transform: translateX(50px)
+    }
+    100%{
+        transform: translateX(-50px);
+    }
+}
+
+@keyframes moveRight {
+    0%{
+        transform: translatex(50px);
+    }
+    50%{
+        transform: translateX(-50px)
+    }
+    100%{
+        transform: translateX(50px);
+    } /* Moves slightly right */
+}
+
+/* 'alternate' makes them bounce back and forth smoothly. 
+   Adjust '8s' to make the floating speed faster or slower. 
+*/
+.top-bounce {
+    animation: moveLeft 4s ease-in-out infinite alternate;
+}
+
+.bottom-bounce {
+    animation: moveRight 4s ease-in-out infinite alternate;
+}
+
+/* =========================================
+   EXTREME MOBILE (Screens 320px and under, including 300px)
+   ========================================= */
+@media (max-width: 320px) {
+    /* Adjust text to fit tight screens */
+    .profile-text h1 {
+        font-size: 2rem; 
+    }
+    
+    .role {
+        font-size: 1rem;
+    }
+    
+    .bio {
+        font-size: 0.85rem;
+        line-height: 1.4;
+    }
+
+    /* Move marquee slightly closer to the center to save space */
+    .top-marquee { top: 22%; }
+    .bottom-marquee { bottom: 22%; }
+    
+    /* Shrink icons and spacing to the absolute minimum */
+    .icon-group {
+        gap: 10px; 
+    }
+    
+    /* .icon-group i {
+        font-size: 1.2rem; 
+    } */
+    
+    /* .code-icon {
+        font-size: 1rem;
+        padding: 2px 4px;
+    } */
+
+    .icon-group i {
+        font-size: 1.2rem; /* Reduced from 1.2rem */
+    }
+    
+    .code-icon {
+        font-size: 0.85rem; /* Reduced from 1rem */
+        padding: 2px 4px;
+    }
+}
+
+
+/* --- Global Styles Integration --- */
+:root {
+  --primary-color: #007bff; /* Accent color */
+  --text-dark: #333;
+  --text-muted: #555;
+  --bg-light: #f9f9f9;
+  --bg-white: #ffffff;
+  --shadow-subtle: 0 4px 12px rgba(0,0,0,0.08);
+  --shadow-medium: 0 10px 20px rgba(0,0,0,0.12);
+  --transition: all 0.3s ease;
+}
+
+/* --- Updates to user's .btn class --- */
+.btn {
+  display: inline-block;
+  padding: 12px 28px;
+  text-decoration: none;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+/* --- About Section - New Styles --- */
+.about-section {
+  padding: 100px 20px;
+  background-color: var(--bg-light);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: var(--text-dark);
+  /* The main scroll-reveal transition */
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+/* State for the JS hidden class to function */
+.about-section.hidden {
+  opacity: 0;
+  transform: translateY(30px);
+}
+
+.about-container {
+  max-width: 900px; /* Reduced for single column impact */
+  margin: 0 auto;
+}
+
+.about-content {
+  text-align: center; /* Center everything in the single column */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* --- 1. Attractive Profile Image with Glow --- */
+.about-image-wrapper {
+  position: relative;
+  margin-bottom: 30px;
+}
+
+.about-profile-pic {
+  width: 160px;
+  height: 160px;
+  border-radius: 50%; /* Perfect circle */
+  object-fit: cover;
+  border: 5px solid var(--bg-white);
+  box-shadow: var(--shadow-medium);
+  transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  position: relative;
+  z-index: 2;
+}
+
+.about-profile-pic:hover {
+  transform: scale(1.05); /* Fun pop effect */
+}
+
+/* Subtle glowing aura behind the image */
+.glow-effect {
+  position: absolute;
+  top: -10px;
+  left: -10px;
+  right: -10px;
+  bottom: -10px;
+  background: radial-gradient(circle, rgba(0,123,255,0.15) 0%, rgba(255,255,255,0) 70%);
+  border-radius: 50%;
+  filter: blur(8px);
+  opacity: 0.8;
+  z-index: 1;
+  pointer-events: none;
+}
+
+/* --- 2. Typography Updates --- */
+.about-content h2 {
+  font-size: 2.8rem;
+  margin-bottom: 5px;
+  color: #111;
+}
+
+.about-content .subtitle {
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: var(--primary-color); /* Highlight color */
+  margin-bottom: 30px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.about-content p {
+  line-height: 1.8;
+  margin-bottom: 20px;
+  color: var(--text-muted);
+  max-width: 750px; /* Readability width */
+}
+
+/* --- 3. Personal Details List & Animatic Reveal --- */
+.personal-details {
+  margin: 40px 0;
+  width: 100%;
+  max-width: 750px;
+  text-align: left; /* Text content on left, details alignment on right */
+}
+
+.personal-details h3 {
+  font-size: 1.8rem;
+  margin-bottom: 25px;
+  color: #222;
+  border-left: 4px solid var(--primary-color);
+  padding-left: 15px;
+}
+
+/* Use CSS grid for perfect label-value alignment */
+.details-grid {
+  list-style: none;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 15px 40px;
+}
+
+.details-grid li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 0;
+  border-bottom: 1px solid rgba(0,0,0,0.05);
+  font-size: 1.05rem;
+  /* Animatic initial state: hidden, slid down */
+  opacity: 0;
+  transform: translateY(15px);
+  transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+}
+
+/* Staggered sequential animation on list items when parent is revealed */
+.about-section:not(.hidden) .details-grid li:nth-child(1) { transition-delay: 0.1s; opacity: 1; transform: translateY(0); }
+.about-section:not(.hidden) .details-grid li:nth-child(2) { transition-delay: 0.2s; opacity: 1; transform: translateY(0); }
+.about-section:not(.hidden) .details-grid li:nth-child(3) { transition-delay: 0.3s; opacity: 1; transform: translateY(0); }
+.about-section:not(.hidden) .details-grid li:nth-child(4) { transition-delay: 0.4s; opacity: 1; transform: translateY(0); }
+.about-section:not(.hidden) .details-grid li:nth-child(5) { transition-delay: 0.5s; opacity: 1; transform: translateY(0); }
+.about-section:not(.hidden) .details-grid li:nth-child(6) { transition-delay: 0.6s; opacity: 1; transform: translateY(0); }
+
+.detail-label {
+  font-weight: 700;
+  color: #222;
+}
+
+.detail-value {
+  color: var(--text-muted);
+}
+
+/* --- 4. Resume Button Style --- */
+.resume-btn {
+  background-color: var(--primary-color);
+  color: #fff;
+  box-shadow: 0 4px 10px rgba(0,123,255,0.2);
+  margin-bottom: 50px;
+}
+
+.resume-btn:hover {
+  background-color: #0056b3;
+  box-shadow: 0 6px 15px rgba(0,123,255,0.3);
+  transform: translateY(-2px);
+}
+
+/* --- 5. Integrated Interactive Social Cards --- */
+.about-socials-container {
+  width: 100%;
+  max-width: 750px;
+  text-align: center;
+  margin-top: 30px;
+}
+
+.about-socials-container h3 {
+  font-size: 1.8rem;
+  margin-bottom: 30px;
+  color: #222;
+}
+
+/* --- 5. Integrated Interactive Social Cards --- */
+.about-socials {
+  display: flex;
+  flex-direction: row; /* Places cards side-by-side in the same line */
+  justify-content: center;
+  gap: 20px;
+  width: 100%;
+}
+
+.social-card {
+  display: flex;
+  align-items: center;
+  flex: 1; /* Makes the cards share the available space equally */
+  max-width: 350px; /* Prevents them from stretching too far on wide screens */
+  padding: 20px;
+  background-color: var(--bg-white);
+  border-radius: 12px;
+  text-decoration: none;
+  color: var(--text-dark);
+  box-shadow: var(--shadow-subtle);
+  transition: var(--transition);
+  border: 1px solid rgba(0,0,0,0.03);
+}
+
+/* Slick hover animation for cards */
+.social-card:hover {
+  transform: translateY(-4px) scale(1.02);
+  box-shadow: var(--shadow-medium);
+  border-color: rgba(0,123,255,0.1);
+}
+
+/* ... Keep all the existing .card-icon, .card-info, and .card-arrow CSS exactly as it is ... */
+
+.card-icon {
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  background-color: rgba(0,123,255,0.06);
+  margin-right: 20px;
+  font-size: 2rem;
+  transition: var(--transition);
+}
+
+.social-card:hover .card-icon {
+  background-color: var(--primary-color);
+  color: #fff;
+}
+
+/* Devicon styles need to be inherited from your main styles or added here if not colored */
+.card-icon i { color: inherit; } 
+
+.card-info {
+  text-align: left; /* Info details align left */
+  flex-grow: 1;
+}
+
+.card-info h4 {
+  margin: 0 0 5px 0;
+  font-size: 1.2rem;
+}
+
+.card-info span {
+  font-size: 0.95rem;
+  color: var(--text-muted);
+}
+
+.card-arrow {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: var(--primary-color);
+  opacity: 0;
+  transform: translateX(-10px);
+  transition: var(--transition);
+}
+
+.social-card:hover .card-arrow {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Specific Card Theming for variety */
+.github-card:hover { border-left: 4px solid #333; }
+.linkedin-card:hover { border-left: 4px solid #0077b5; }
+
+/* --- 6. Mobile Responsiveness --- */
+@media (max-width: 768px) {
+  .about-content h2 { font-size: 2.2rem; }
+  .about-content .subtitle { font-size: 1.1rem; }
+  .about-profile-pic { width: 130px; height: 130px; }
+  .details-grid { grid-template-columns: 1fr; gap: 10px; }
+  .details-grid li { font-size: 1rem; flex-direction: column; align-items: flex-start; gap: 5px; text-align: left;}
+  .detail-value { width: 100%; text-align: left;}
+  .card-info span { font-size: 0.9rem; }
+
+  .about-socials {
+    flex-direction: column; 
+    width: 100%;
+  }
+  .social-card {
+    max-width: 100%; 
+    width: 100%;
+  }
+}
+
+/* Skills Section Container */
+.skills-section {
+    padding: 4rem 1rem;
+    background-color: transparent;
+    color: #ffffff;
+    font-family: 'Times new Roman', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Master Layout - Puts topics in one line */
+.skills-layout {
+    max-width: 1400px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 4 equal columns */
+    gap: 2rem;
+    align-items: start;
+}
+
+/* Category Formatting */
+.skill-category {
+    text-align: center;
+}
+
+.category-title {
+    font-size: 1.4rem;
+    font-weight: 600;
+    margin-bottom: 2rem;
+    color: black;
+    position: relative;
+    display: inline-block;
+    letter-spacing: 1px;
+}
+
+.category-title::after {
+    content: '';
+    position: absolute;
+    width: 60%;
+    height: 3px;
+    background: linear-gradient(90deg, transparent, #00f2fe, transparent);
+    bottom: -8px;
+    left: 20%;
+    border-radius: 5px;
+}
+
+/* Square Box Grid inside each topic */
+.skills-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    justify-content: center;
+}
+
+/* Individual Square Skill Box */
+.skill-box {
+    width: 110px; /* Slightly smaller to fit 4 columns */
+    height: 110px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column; /* Stacks icon above text */
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 10px;
+    backdrop-filter: blur(10px);
+    cursor: pointer;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    position: relative;
+    overflow: hidden;
+    gap: 10px; /* Space between icon and text */
+}
+
+/* Icon Styling */
+.skill-box i {
+    font-size: 2.5rem;
+    /* color: var(--brand); */
+    z-index: 2;
+    transition: all 0.3s ease;
+}
+
+/* Text styling */
+.skill-box span {
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: #b3b9c5;
+    z-index: 2;
+    transition: color 0.3s ease;
+}
+
+/* Glowing border effect on hover */
+.skill-box::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    border-radius: 15px;
+    padding: 2px;
+    background: linear-gradient(45deg, #4facfe, #00f2fe);
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: destination-out;
+    mask-composite: exclude;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+}
+
+/* Hover Animations */
+.skill-box:hover {
+    transform: translateY(-8px) scale(1.05);
+    box-shadow: 0 15px 35px rgba(0, 242, 254, 0.3);
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.skill-box:hover::before {
+    opacity: 1;
+}
+
+.skill-box:hover i {
+    color: #ffffff;
+    transform: scale(1.1);
+    text-shadow: 0 0 15px rgba(0, 242, 254, 0.8);
+}
+
+.skill-box:hover span {
+    color: #ffffff;
+    font-weight: 600;
+}
+
+/* Scroll Animation Base Classes */
+.hidden {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Brand Colors for Icons */
+.color-java { color: #f89820; }        /* Java Orange */
+.color-js { color: #f7df1e; }          /* JavaScript Yellow */
+.color-spring { color: #6db33f; }      /* Spring Green */
+.color-jwt { color: #fb015b; }         /* JWT Pink/Red */
+.color-api { color: #009688; }         /* API Teal */
+.color-express { color: #aaaaaa; }     /* Express Grey (shows well on dark) */
+.color-jdbc { color: #5382a1; }        /* Database Blue */
+.color-ws { color: #ff9900; }          /* WebSocket Orange */
+.color-react { color: #61dafb; }       /* React Light Blue */
+.color-html { color: #e34f26; }        /* HTML5 Orange-Red */
+.color-css { color: #1572b6; }         /* CSS3 Blue */
+.color-tailwind { color: #38bdf8; }    /* Tailwind Cyan */
+.color-mobile { color: #a8b2d1; }      /* Responsive Slate */
+.color-mysql { color: #4479a1; }       /* MySQL Blue */
+.color-mongo { color: #47a248; }       /* MongoDB Green */
+
+/* Optional: Keep the icons their brand color on hover, but add a glow */
+.skill-box:hover i {
+    transform: scale(1.1);
+    filter: drop-shadow(0 0 8px currentColor);
+}
+/* Mobile & Tablet Responsiveness */
+@media (max-width: 1024px) {
+    .skills-layout {
+        grid-template-columns: repeat(2, 1fr); /* 2 columns on tablets */
+    }
+}
+
+@media (max-width: 600px) {
+    .skills-layout {
+        grid-template-columns: 1fr; /* 1 column on phones */
+    }
+    .skill-box {
+        width: 100px;
+        height: 100px;
+    }
+    .skill-box i {
+        font-size: 2rem;
+    }
+    .skill-box span {
+        font-size: 0.85rem;
+    }
+}
+
+.timeline-section {
+    font-family: Arial, sans-serif;
+    background-color: #f4f7f6;
+    padding: 50px;
+    color: #333;
+}
+
+.timeline-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
+    position: relative;
+}
+
+.timeline-column h2 {
+    font-size: 24px;
+    color: #2c3e50;
+    margin-bottom: 30px;
+}
+
+.timeline-item {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 40px;
+    position: relative;
+}
+
+/* Fixed: Line now runs full 100% height for all items, including the 3rd ones */
+.timeline-item::before {
+    content: '';
+    position: absolute;
+    left: 10px;
+    top: 0;
+    height: 100%;
+    width: 2px;
+    background-color: #3498db;
+}
+
+/* Timeline Node/Dot */
+.timeline-dot {
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    background-color: #fff;
+    border: 2px solid #3498db;
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 2;
+    /* Animated pulse effect */
+    animation: pulse-border 2s infinite;
+}
+
+/* The content box */
+.timeline-box {
+    background-color: #fff;
+    padding: 20px 25px;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    margin-left: 50px;
+    width: 100%;
+    border-right: 5px solid #3498db; /* Border accent on the right side */
+    position: relative;
+    transform: translateX(-20px);
+    opacity: 0;
+    /* Initial fade-in animation when page loads */
+    animation: slide-in 0.6s ease forwards;
+}
+
+.timeline-item:nth-child(2) .timeline-box { animation-delay: 0.3s; }
+.timeline-item:nth-child(3) .timeline-box { animation-delay: 0.6s; }
+
+.date {
+    color: #3498db;
+    font-weight: bold;
+    font-size: 14px;
+    margin-bottom: 8px;
+    display: block;
+}
+
+h3 {
+    margin: 0 0 10px 0;
+    font-size: 18px;
+    color: #2c3e50;
+}
+
+.location {
+    font-weight: bold;
+    color: #7f8c8d;
+    display: block;
+    margin-bottom: 5px;
+}
+
+p {
+    margin: 0 0 10px 0;
+    line-height: 1.6;
+    font-size: 14px;
+}
+
+/* --- Animations --- */
+
+/* Pulsing dot animation */
+@keyframes pulse-border {
+    0% { box-shadow: 0 0 0 0 rgba(52, 152, 219, 0.4); }
+    70% { box-shadow: 0 0 0 10px rgba(52, 152, 219, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(52, 152, 219, 0); }
+}
+
+/* Box slide-in animation */
+@keyframes slide-in {
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+/* Hover animation on boxes */
+.timeline-box:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+}
+
+/* Mobile Layout Stacking */
+@media screen and (max-width: 768px) {
+    .timeline-container {
+        grid-template-columns: 1fr;
+    }
+    .timeline-section {
+        padding: 20px;
+    }
+}
+
+.projects-section {
+  background-color: #1e1c26; /* Deep dark slate background */
+  font-family: 'Poppins', sans-serif;
+  padding: 80px 20px;
+  color: #ffffff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.projects-container {
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+/* Header Design */
+.projects-header {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.projects-title {
+  font-size: 2.2rem;
+  font-weight: 800;
+  letter-spacing: 1px;
+  color: #ff6b00; /* Vibrant custom orange */
+  margin: 0 0 12px 0;
+  display: inline-flex;
+  align-items: center;
+  gap: 15px;
+}
+
+/* Subtle animation for the title fire icons */
+.animate-fire {
+  font-size: 2rem;
+  animation: flicker 1.5s ease-in-out infinite alternate;
+}
+
+@keyframes flicker {
+  0% { transform: scale(0.95); opacity: 0.9; }
+  100% { transform: scale(1.05); opacity: 1; filter: drop-shadow(0 0 4px #ff6b00); }
+}
+
+.projects-subtitle {
+  font-size: 1rem;
+  color: #9aa0b1;
+  margin: 0;
+  font-weight: 400;
+}
+
+/* Layout Responsive Grid */
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+}
+
+/* Base Card Style & Entry Animation Target */
+.projects-section .project-card {
+  background-color: #252331; 
+  border: 1px solid rgba(255, 255, 255, 0.04);
+  border-radius: 16px;
+  padding: 40px 30px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  
+  /* Initial state before JS intersection observer fires */
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.6s cubic-bezier(0.215, 0.610, 0.355, 1), 
+              transform 0.6s cubic-bezier(0.215, 0.610, 0.355, 1), 
+              box-shadow 0.3s ease;
+}
+
+/* Animated state triggered by JavaScript */
+.projects-section .project-card.animate-in {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Interactive Hover state - active only after card loads */
+.projects-section .project-card.animate-in:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+}
+
+/* Image Wrapper Adjustments */
+.project-image-wrapper {
+  min-height: 40px;
+  margin-bottom: 25px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.project-img {
+  max-width: 100%;
+  max-height: 40px;
+  object-fit: contain;
+  color: #9aa0b1;
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+.card-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  margin: 0 0 12px 0;
+  color: #ffffff;
+}
+
+.card-desc {
+  font-size: 0.9rem;
+  color: #9aa0b1;
+  line-height: 1.6;
+  margin: 0 0 30px 0;
+  flex-grow: 1; 
+}
+
+/* Action Buttons */
+.visit-project-btn {
+  background-color: #ff6b00;
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 0.9rem;
+  font-weight: 600;
+  padding: 10px 28px;
+  border-radius: 25px;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px; /* Space out text from Font Awesome icon */
+  transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+.visit-project-btn i {
+  font-size: 0.95rem;
+  transition: transform 0.2s ease;
+}
+
+.visit-project-btn:hover {
+  background-color: #e55a00;
+}
+
+/* Tiny interaction to make the button icons move up slightly on hover */
+.visit-project-btn:hover i {
+  transform: translateY(-1px);
+}
+
+.visit-project-btn:active {
+  transform: scale(0.97);
+}
+
+/* Media Queries */
+@media (max-width: 992px) {
+  .projects-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 650px) {
+  .projects-grid {
+    grid-template-columns: 1fr;
+  }
+  .projects-title {
+    font-size: 1.8rem;
+  }
+}
+
+/* Base Layout & Desktop View */
+.coding-profiles-section {
+  background-color: #0b0f19;
+  color: #f3f4f6;
+  padding: 5rem 2rem;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  box-sizing: border-box;
+}
+
+.coding-profiles-section * {
+  box-sizing: border-box;
+}
+
+.coding-profiles-section .cp-container {
+  max-width: 1000px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.coding-profiles-section .cp-title {
+  font-size: 2.25rem;
+  font-weight: 700;
+  text-align: center;
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+  letter-spacing: -0.025em;
+}
+
+.coding-profiles-section .cp-subtitle {
+  color: #9ca3af;
+  text-align: center;
+  margin-bottom: 4rem;
+  font-size: 1.05rem;
+}
+
+.coding-profiles-section .cp-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2.5rem;
+}
+
+.coding-profiles-section .cp-card {
+  background: #111827;
+  border: 1px solid #1f2937;
+  border-radius: 16px;
+  padding: 2.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), border-color 0.3s ease;
+}
+
+.coding-profiles-section .cp-card:hover {
+  transform: translateY(-6px);
+}
+
+.coding-profiles-section .cp-leetcode:hover {
+  border-color: #ffa116;
+}
+
+.coding-profiles-section .cp-gfg:hover {
+  border-color: #2f8d46;
+}
+
+.coding-profiles-section .cp-card-header {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  margin-bottom: 2rem;
+}
+
+.coding-profiles-section .cp-icon {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.coding-profiles-section .cp-leetcode .cp-icon { color: #ffa116; }
+.coding-profiles-section .cp-gfg .cp-icon { color: #2f8d46; }
+
+.coding-profiles-section .cp-card-header h3 {
+  font-size: 1.4rem;
+  font-weight: 600;
+  margin: 0;
+}
+
+.coding-profiles-section .cp-card-body {
+  margin-bottom: 2.5rem;
+}
+
+.coding-profiles-section .cp-stat-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.85rem 0;
+  border-bottom: 1px solid #1f2937;
+  color: #9ca3af;
+  font-size: 1rem;
+}
+
+.coding-profiles-section .cp-stat-row:last-child {
+  border-bottom: none;
+}
+
+.coding-profiles-section .cp-stat-value {
+  color: #ffffff;
+  font-weight: 700;
+  font-size: 1.15rem;
+}
+
+.coding-profiles-section .cp-btn {
+  display: block;
+  text-align: center;
+  text-decoration: none;
+  padding: 0.85rem;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.coding-profiles-section .cp-leetcode .cp-btn {
+  background-color: rgba(255, 161, 22, 0.08);
+  color: #ffa116;
+}
+
+.coding-profiles-section .cp-leetcode .cp-btn:hover {
+  background-color: #ffa116;
+  color: #0b0f19;
+}
+
+.coding-profiles-section .cp-gfg .cp-btn {
+  background-color: rgba(47, 141, 70, 0.08);
+  color: #2f8d46;
+}
+
+.coding-profiles-section .cp-gfg .cp-btn:hover {
+  background-color: #2f8d46;
+  color: #ffffff;
+}
+
+/* ==========================================================================
+   Responsive Breakpoints
+   ========================================================================== */
+
+/* Tablets & Small Laptops */
+@media (max-width: 768px) {
+  .coding-profiles-section {
+    padding: 4rem 1.5rem;
+  }
+  .coding-profiles-section .cp-grid {
+    gap: 1.75rem;
+  }
+  .coding-profiles-section .cp-card {
+    padding: 2rem;
+  }
+}
+
+/* Mobile Screens (Fully Occupied Layout Setup) */
+@media (max-width: 480px) {
+  .coding-profiles-section {
+    padding: 3rem 0.5rem; /* Removes wide margins to let contents stretch */
+  }
+
+  .coding-profiles-section .cp-title {
+    font-size: 1.75rem;
+  }
+
+  .coding-profiles-section .cp-subtitle {
+    font-size: 0.95rem;
+    margin-bottom: 2.5rem;
+    padding: 0 0.5rem;
+  }
+
+  .coding-profiles-section .cp-grid {
+    gap: 1.25rem;
+    grid-template-columns: 1fr; /* Force stack securely on tiny screens */
+  }
+
+  .coding-profiles-section .cp-card {
+    padding: 1.5rem 1.25rem; /* Compact inside gutters */
+    border-radius: 12px;
+  }
+
+  .coding-profiles-section .cp-card-header {
+    margin-bottom: 1.5rem;
+    gap: 1rem;
+  }
+
+  .coding-profiles-section .cp-card-header h3 {
+    font-size: 1.25rem;
+  }
+
+  .coding-profiles-section .cp-card-body {
+    margin-bottom: 2rem;
+  }
+
+  .coding-profiles-section .cp-stat-row {
+    padding: 0.75rem 0;
+    font-size: 0.9rem;
+  }
+
+  .coding-profiles-section .cp-stat-value {
+    font-size: 1.05rem;
+  }
+}
+
+/* Scopes resets and base styles strictly inside this section */
+.get-in-touch-section,
+.get-in-touch-section * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    transition: all 0.3s ease;
+}
+
+@keyframes sectionLoadInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Desktop: Stays 100% full-bleed and spacious */
+.get-in-touch-section {
+    width: 100%; 
+    margin: 0; 
+    padding: 60px 40px; 
+    color: #f1f5f9; 
+    background: linear-gradient(135deg, #1A1D23 0%, #2A3036 100%);
+    animation: sectionLoadInUp 0.8s ease-out forwards;
+}
+
+.get-in-touch-section .section-main-heading {
+    text-align: center;
+    font-size: 48px; 
+    font-weight: 700;
+    margin-bottom: 50px;
+    letter-spacing: 1px;
+    color: #FF6F00; /* Main orange color from image */
+}
+
+.get-in-touch-section .contact-card-container {
+    display: flex;
+    flex-direction: row;
+    gap: 40px; 
+    width: 100%;
+}
+
+/* Desktop: Large, comfortable glass panel sizing */
+.get-in-touch-section .contact-card {
+    flex: 1; 
+    padding: 45px; /* Original spacing for desktop view */
+    background: rgba(255, 255, 255, 0.04); 
+    backdrop-filter: blur(12px); 
+    -webkit-backdrop-filter: blur(12px); 
+    border: 1px solid rgba(255, 255, 255, 0.1); 
+    border-radius: 16px;
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+}
+
+.get-in-touch-section .contact-card:hover {
+    background: rgba(255, 255, 255, 0.07); 
+    border-color: rgba(255, 111, 0, 0.3); 
+    box-shadow: 0 12px 40px 0 rgba(255, 111, 0, 0.2); 
+    transform: translateY(-4px); 
+}
+
+.get-in-touch-section h2 {
+    font-size: 26px;
+    margin-bottom: 25px;
+    color: #FF6F00; 
+    display: flex;
+    align-items: center;
+}
+
+.get-in-touch-section .title-accent-icon {
+    margin-right: 12px;
+    color: #FF6F00;
+}
+
+/* Input Fields Style */
+.get-in-touch-section .input-form-group {
+    margin-bottom: 22px;
+}
+
+.get-in-touch-section .input-form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 500;
+    font-size: 14px;
+    color: #cbd5e1; 
+}
+
+.get-in-touch-section .input-icon-field {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.get-in-touch-section .input-accent-icon {
+    position: absolute;
+    left: 15px;
+    color: #B24E00; 
+    font-size: 16px;
+}
+
+.get-in-touch-section .input-icon-field.textarea-field .input-accent-icon {
+    top: 15px;
+}
+
+.get-in-touch-section .input-form-group input, 
+.get-in-touch-section .input-form-group textarea {
+    width: 100%;
+    padding: 14px 14px 14px 45px; 
+    background: rgba(15, 23, 42, 0.6); 
+    border: 1px solid rgba(255, 255, 255, 0.1); 
+    border-radius: 8px;
+    font-size: 15px;
+    color: #fff;
+    outline: none;
+}
+
+.get-in-touch-section .input-form-group input::placeholder,
+.get-in-touch-section .input-form-group textarea::placeholder {
+    color: #7a8a9e; 
+}
+
+.get-in-touch-section .input-form-group input:focus, 
+.get-in-touch-section .input-form-group textarea:focus {
+    border-color: #FF6F00; 
+    background: rgba(15, 23, 42, 0.8); 
+    box-shadow: 0 0 12px rgba(255, 111, 0, 0.4); 
+}
+
+.get-in-touch-section .input-form-group input:focus + .input-accent-icon,
+.get-in-touch-section .input-form-group textarea:focus + .input-accent-icon {
+    color: #FF6F00;
+}
+
+/* Button setup */
+.get-in-touch-section .submit-action-btn {
+    background: linear-gradient(135deg, #FF6F00 0%, #D6460F 100%); 
+    color: #fff; 
+    border: none;
+    padding: 16px 24px;
+    font-size: 17px;
+    font-weight: 600;
+    border-radius: 8px;
+    cursor: pointer;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px; 
+    box-shadow: 0 4px 15px rgba(255, 111, 0, 0.4); 
+}
+
+.get-in-touch-section .submit-action-btn:hover {
+    background: linear-gradient(135deg, #FF7F24 0%, #FF6F00 100%); 
+    box-shadow: 0 6px 20px rgba(255, 111, 0, 0.6); 
+}
+
+.get-in-touch-section .submit-action-btn:hover .btn-end-icon {
+    transform: translateX(5px);
+}
+
+/* Right Side Layout */
+.get-in-touch-section .contact-info-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.get-in-touch-section .info-details-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    background: rgba(255, 255, 255, 0.02); 
+    padding: 18px;
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.04); 
+}
+
+.get-in-touch-section .info-details-item:hover {
+    background: rgba(255, 255, 255, 0.05); 
+    border-color: rgba(255, 111, 0, 0.2); 
+}
+
+.get-in-touch-section .info-icon-container {
+    width: 45px;
+    height: 45px;
+    background: rgba(255, 111, 0, 0.15); 
+    border-radius: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #FF6F00; 
+    font-size: 18px;
+    margin-right: 15px;
+    flex-shrink: 0;
+}
+
+.get-in-touch-section .info-details-item .info-label {
+    display: block;
+    font-size: 13px;
+    color: #FF6F00; 
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 2px;
+}
+
+.get-in-touch-section .info-details-item p {
+    font-size: 15px;
+    color: #f1f5f9;
+}
+
+.get-in-touch-section .map-view-container {
+    margin-top: 15px;
+    flex-grow: 1; 
+    min-height: 250px;
+    border-radius: 10px;
+    overflow: hidden; 
+    border: 1px solid rgba(255, 255, 255, 0.1); 
+}
+
+.get-in-touch-section .map-view-container iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+    display: block;
+}
+
+
+/* ==========================================================================
+   MOBILE & TABLET ONLY: Sizing changes happen ONLY inside this media query
+   ========================================================================== */
+@media (max-width: 992px) {
+    /* Stacks columns vertically and shrinks total width so boxes stay compact */
+    .get-in-touch-section .contact-card-container {
+        flex-direction: column;
+        gap: 24px;
+        max-width: 580px; /* Reduces the box size so it doesn't look stretched on mobile */
+        margin: 0 auto;  /* Centers the compact box stack on mobile screens */
+    }
+
+    /* Reduces inner padding of cards to save screen real estate */
+    .get-in-touch-section .contact-card {
+        padding: 25px 20px; 
+        border-radius: 12px;
+    }
+
+    .get-in-touch-section h2 {
+        font-size: 22px;
+        margin-bottom: 18px;
+    }
+
+    /* Compacts spacing inside form layout elements */
+    .get-in-touch-section .input-form-group {
+        margin-bottom: 14px;
+    }
+
+    .get-in-touch-section .input-form-group input, 
+    .get-in-touch-section .input-form-group textarea {
+        padding: 11px 11px 11px 40px;
+        font-size: 14px;
+    }
+
+    .get-in-touch-section .input-accent-icon {
+        left: 12px;
+        font-size: 14px;
+    }
+
+    .get-in-touch-section .submit-action-btn {
+        padding: 12px 20px;
+        font-size: 15px;
+    }
+
+    /* Compacts Contact Info Items list elements */
+    .get-in-touch-section .info-details-item {
+        padding: 12px;
+        margin-bottom: 12px;
+    }
+
+    .get-in-touch-section .info-icon-container {
+        width: 36px;
+        height: 36px;
+        font-size: 14px;
+        margin-right: 12px;
+    }
+
+    .get-in-touch-section .info-details-item p {
+        font-size: 13px;
+    }
+
+    .get-in-touch-section .map-view-container {
+        min-height: 240px;
+    }
+}
+
+@media (max-width: 576px) {
+    .get-in-touch-section {
+        padding: 40px 15px; /* Pulls background tight to phone edges */
+    }
+
+    .get-in-touch-section .section-main-heading {
+        font-size: 34px;
+        margin-bottom: 30px;
+    }
+}
+
+
+.simple-footer {
+    background-color: #0d1117;
+    color: #8b949e;
+    padding: 1rem 1rem;
+    text-align: center;
+    font-family: system-ui, -apple-system, sans-serif;
+    font-size: 0.9rem;
+}
+
+.simple-footer p {
+    margin: 0 0 0.8rem 0;
+}
